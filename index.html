@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BW Limpezas • Profissional em Lisboa</title>
+  <!-- FAVICON (exact logo image) -->
+  <link rel="icon" href="https://outstanding-harlequin-bydu01wwcz.edgeone.dev/WhatsApp_Image_2026-02-18_at_12.51.33-removebg-preview.png" type="image/png">
   <!-- Google Fonts Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +31,10 @@
       --cinza-azulado: #E6EDF5;
       --texto-escuro: #122b3c;
       --sombra: 0 12px 28px -8px rgba(10,46,77,0.12);
+      /* nova cor para header (solicitada) */
+      --header-moderno: #3E4A52;
+      --header-claro: #404C54;
+      --header-escuro: #39444C;
     }
 
     body {
@@ -43,14 +49,16 @@
       padding: 0 24px;
     }
 
-    /* ===== HEADER (AZUL + BRANCO) ===== */
+    /* ===== HEADER MODERNO PROFISSIONAL (AJUSTE VISUAL) ===== */
     header {
-      background: var(--branco-puro);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      border-bottom: 3px solid var(--azul-escuro);
+      /* Gradiente leve com base #3E4A52 + variações */
+      background: linear-gradient(135deg, var(--header-moderno) 0%, #404C54 70%, #39444C 100%);
+      box-shadow: 0 8px 20px -6px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.1); /* sombra suave com profundidade */
+      border-bottom: none; /* removida a borda azul para um visual mais limpo, mantendo profundidade */
       position: sticky;
       top: 0;
       z-index: 200;
+      padding: 4px 0;         /* ajuste leve para melhor espaçamento */
     }
 
     .header-flex {
@@ -58,18 +66,27 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      padding: 12px 0;
+      padding: 8px 0;          /* espaçamento equilibrado */
     }
 
     .logo {
-      max-width: 180px;
+      max-width: 170px;        /* ligeiramente menor para centralização óptica */
+      display: flex;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+    .logo:hover {
+      transform: scale(1.02);   /* toque premium */
     }
     .logo img {
       width: 100%;
       height: auto;
       display: block;
+      filter: brightness(1.02); /* mínimo contraste extra, fundo escuro exige nada agressivo */
+      /* a logo tem fundo transparente, o tom escuro atrás dá contraste suave */
     }
 
+    /* menu e links agora com cor clara para garantir contraste */
     .nav-menu ul {
       display: flex;
       gap: 2rem;
@@ -79,23 +96,29 @@
     .nav-menu a {
       text-decoration: none;
       font-weight: 600;
-      color: var(--azul-escuro);
+      color: white;               /* alterado para branco para ótimo contraste com fundo escuro */
       font-size: 1.05rem;
       transition: 0.2s;
       padding-bottom: 4px;
       border-bottom: 2px solid transparent;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1); /* leve profundidade */
     }
 
     .nav-menu a:hover {
-      color: var(--azul-claro);
-      border-bottom-color: var(--azul-claro);
+      color: #FFE9C7;             /* tom areia claro (elegante) */
+      border-bottom-color: #FFE9C7;
     }
 
+    /* menu toggle (mobile) também em branco */
     .menu-toggle {
       display: none;
       font-size: 2rem;
-      color: var(--azul-escuro);
+      color: white;
       cursor: pointer;
+      transition: 0.2s;
+    }
+    .menu-toggle:hover {
+      color: #FFE9C7;
     }
 
     /* ===== BOTÕES (AGORA EM AZUL) ===== */
@@ -404,7 +427,7 @@
       margin-right: 8px;
     }
 
-    /* ===== RESPONSIVO ===== */
+    /* ===== RESPONSIVO (com ajustes para header mobile) ===== */
     @media (max-width: 768px) {
       .header-flex {
         padding: 10px 0;
@@ -415,6 +438,12 @@
       .nav-menu {
         width: 100%;
         display: none;
+        background: rgba(57, 68, 76, 0.98); /* escuro coerente, ligeira transparência */
+        backdrop-filter: blur(4px);
+        border-radius: 0 0 20px 20px;
+        padding: 0 16px 16px 16px;
+        margin-top: 8px;
+        box-shadow: 0 10px 15px -8px rgba(0,0,0,0.3);
       }
       .nav-menu.active {
         display: block;
@@ -424,6 +453,11 @@
         gap: 1rem;
         padding: 20px 0;
       }
+      .nav-menu a {
+        color: white;
+        display: block;
+        padding: 6px 0;
+      }
       .hero-content h1 {
         font-size: 2.5rem;
       }
@@ -431,10 +465,17 @@
         font-size: 2rem;
       }
     }
+
+    /* pequeno ajuste extra para telas muito pequenas */
+    @media (max-width: 480px) {
+      .logo {
+        max-width: 140px;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
+  <!-- ===== HEADER (com visual melhorado) ===== -->
   <header>
     <div class="container header-flex">
       <div class="logo">
@@ -581,7 +622,7 @@
     </div>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
+  <!-- ===== JAVASCRIPT (exatamente igual, nada alterado) ===== -->
   <script>
     (function() {
       // menu mobile
